@@ -36,8 +36,12 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Content> GetListByHeadingID()
+        public List<Content> GetList(string p)
         {
+            if (!string.IsNullOrEmpty(p))
+            {
+                return _contentDal.List(x => x.ContentValue.Contains(p));
+            }
             return _contentDal.List();
         }
 

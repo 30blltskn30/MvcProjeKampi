@@ -9,7 +9,7 @@ namespace BusinessLayer.Abstract
 {
     interface IContentService
     {
-        List<Content> GetListByHeadingID();
+        List<Content> GetList(string p);
         List<Content> GetListByHeadingWriter(int id);//yazara çok içerik listeler
         List<Content> GetListByHeadingID(int id);//başlığa göre çok içerik listeler
         

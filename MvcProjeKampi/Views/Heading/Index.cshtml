@@ -7,6 +7,7 @@
 
 @{string colorCategory = ""; }
 @{string colorStatus = ""; }
+ @{int count = 0;}
 
 
 <!DOCTYPE html>
@@ -64,6 +65,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
+                            
                             //if (item.HeadimgStatus == true)
                             //{
                             if (item.Category.CategoryName == "Tiyatro")
@@ -104,52 +106,54 @@
 
                             }
 
-                                <tr>
-                                    <td>
-                                        @item.HeadingId
-                                    </td>
-                                    <td>
-                                        <a>
-                                            @item.HeadingName
-                                        </a>
-                                        <br />
-                                        <small>
-                                            @(((DateTime)item.HeadingDate).ToString("dd-MM-yyyy"))
-                                        </small>
-                                    </td>
-                                    <td>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
-                                            </li>
-                                        </ul>
-                                    </td>
+                            <tr>
+                                <td>
+                                    @{count++; }
+                                    @count
 
-                                    <td>
-                                        <span class="badge @colorStatus">@item.HeadimgStatus</span> 
-                                    </td>
-                                    <td class="project-state">
-                                        <span class="badge @colorCategory">@item.Category.CategoryName</span>
-                                    </td>
-                                    <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="~/Content/ContentByHeading/@item.HeadingId/">
-                                            <i class="fas fa-folder">
-                                            </i>
-                                            Yazılar
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="~/Heading/EditHeading/@item.HeadingId/">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Düzenle
-                                        </a>
-                                        <a class="btn btn-danger btn-sm" href="~/Heading/DeleteHeading/@item.HeadingId/">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Sil
-                                        </a>
-                                    </td>
-                                </tr>
-                           // }
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
+                                        </li>
+                                    </ul>
+                                </td>
+
+                                <td>
+                                    <span class="badge @colorStatus">@item.HeadimgStatus</span>
+                                </td>
+                                <td class="project-state">
+                                    <span class="badge @colorCategory">@item.Category.CategoryName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="~/Content/ContentByHeading/@item.HeadingId/">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        Yazılar
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="~/Heading/EditHeading/@item.HeadingId/">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="~/Heading/DeleteHeading/@item.HeadingId/">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+                            // }
                         }
 
 
@@ -167,26 +171,26 @@
 
 
 
-                        @*<h2>Index</h2>
-                            <br />
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Başlık</th>
-                                    <th>Kategori</th>
+@*<h2>Index</h2>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>Kategori</th>
 
-                                </tr>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
 
-                                        <td>@item.HeadingId</td>
-                                        <td>@item.HeadingName</td>
-                                        <td>@item.Category.CategoryName</td>
-                                    </tr>
+                <td>@item.HeadingId</td>
+                <td>@item.HeadingName</td>
+                <td>@item.Category.CategoryName</td>
+            </tr>
 
 
-                                }
-                            </table>
-                            <br />
-                            <a href="/Heading/AddHeading/" class=" btn btn-info">Yeni Başlık Girişi</a>*@
+        }
+    </table>
+    <br />
+    <a href="/Heading/AddHeading/" class=" btn btn-info">Yeni Başlık Girişi</a>*@
